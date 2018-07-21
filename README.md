@@ -1,10 +1,12 @@
 MicroBitcoin (MBC) is a decentralised currency involving Blockchain Technology.
 
+
+INFO
+===========================
+
 Coin Site : https://www.microbitcoinico.co
 
 Block Explorer : https://blockexplorer.microbitcoin.co
-
-INFO :
 
 Algorithm : Scrypt
 
@@ -40,44 +42,82 @@ Seednode 1 : 207.148.77.109
 
 Seednode 2 : 207.148.77.122
 
+
+
 Installation
-The installation requires at least a VPS having 2 GB OF RAM, 2 CORE CPU AND 40GB HDD with UBUNTU 16.04 installed on it.
+===========================
+
+The installation requires at least a VPS having 2 GB OF RAM, 2 CORE CPU AND 40GB HDD with UBUNTU 16.04 installed on it. 
+
 
 Steps:
 
-Update your Ubuntu 16.04 machine.
+ 
+1) Update your Ubuntu 16.04 machine.
+
 sudo apt-get update
 
 sudo apt-get upgrade
 
-Install the dependencies to compile from source code.
-sudo apt-get install build-essential libssl-dev libdb++-dev git libssl1.0.0-dbg libdb-dev libboost-all-dev libminiupnpc-dev libevent-dev libcrypto++-dev libgmp3-dev
 
-Download source code from repository.
-git clone https://github.com/digixhub/MicroBitcoin.git
 
-Go to the src directory of your coin.
+2) Install the dependencies to compile from source code.
+
+sudo apt-get install build-essential libssl-dev libdb++-dev git libssl1.0.0-dbg libdb-dev libboost-all-dev libminiupnpc-dev libevent-dev libcrypto++-dev libgmp3-dev 
+
+
+
+3) Download source code from repository.
+
+git clone https://github.com/microbitcoinco/MicroBitcoin.git
+
+
+
+4) Go to the src directory of your coin.
+
 cd MicroBitcoin/src
 
-Now Run the following commands
+
+
+5)  Now Run the following commands
+
 chmod +x leveldb/build_detect_platform
 
-mkdir obj
 
-mkdir -p obj/zerocoin
 
-Execute the following command to compile the daemon.
+6) Execute the following command to compile the daemon.
+
 make -f makefile.unix RELEASE=1
 
-Run the Coin Server using ./MicroBitcoind command
+
+NOTE:
+
+If you see any fatal error while compiling 
+
+RUN : -
+
+a. mkdir obj
+
+b. mkdir -p obj/zerocoin
+
+Again do step 6.
+
+
+7) Run the Coin Server using ./microbitcoind command
+
 You will see message to create username and password
 
-Create a new configuration file.
-sudo nano /root/.MicroBitcoin/MicroBitcoin.conf
 
-Paste the following lines in MicroBitcoin.conf file and save it.
 
-rpcuser=rpc_MicroBitcoin
+8) Create a new configuration file.
+
+sudo nano /root/.microbitcoin/microbitcoin.conf
+
+
+
+9) Paste the following lines in microbitcoin.conf file and save it.
+
+rpcuser=rpc_microbitcoin
 
 rpcpassword=yourrandompassword
 
@@ -91,40 +131,13 @@ txindex=1
 
 daemon=1
 
----------------------------------
 
-Run the Coin Server using ./MicroBitcoind command
+
+10) Run the Coin Server using ./microbitcoind command
+
 
 List of API call list can be found here : https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list
 
 For any kind of installation issue email at : info@microbitcoin.org
 
-
-
-Development process
-===========================
-
-Developers work in their own trees, then submit pull requests when
-they think their feature or bug fix is ready.
-
-The patch will be accepted if there is broad consensus that it is a
-good thing.  Developers should expect to rework and resubmit patches
-if they don't match the project's coding conventions (see coding.txt)
-or are controversial.
-
-The master branch is regularly built and tested, but is not guaranteed
-to be completely stable. Tags are regularly created to indicate new
-stable release versions of MicroBitcoin.
-
-Feature branches are created when there are major new features being
-worked on by several people.
-
-From time to time a pull request will become outdated. If this occurs, and
-the pull is no longer automatically mergeable; a comment on the pull will
-be used to issue a warning of closure. The pull will be closed 15 days
-after the warning if action is not taken by the author. Pull requests closed
-in this manner will have their corresponding issue labeled 'stagnant'.
-
-Issues with no commits will be given a similar warning, and closed after
-15 days from their last activity. Issues closed in this manner will be 
-labeled 'stale'.
+Cheers...
